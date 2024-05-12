@@ -6,13 +6,15 @@ import javafx.scene.control.TextField;
 
 public class CreateUser {
     @FXML
-    private Button bottomExitCreate;
+    private Button buttonExitCreateUser;
     @FXML
-    private TextField textCreateUser;
+    private TextField textNameCreateUser;
     @FXML
-    private TextField textCreatePassword;
+    private TextField textIdCreateUser;
     @FXML
-    private TextField textCreateId;
+    private TextField textEmailCreateUser;
     @FXML
-    private Button bottonCreateAcount;
+    private TextField textPhoneNumberCreateUser;
+    @FXML
+    private Button ButtonCreateCreateUsser;
 }
