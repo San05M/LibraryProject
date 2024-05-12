@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.libraryproject.CreateLoan">
+   <children>
+      <SplitPane dividerPositions="0.4013377926421405" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="buttonExitCreateLoan" layoutX="248.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="14.0" layoutY="28.0" text="Create Loan">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="78.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="User id:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textUserIdCreateLoan" />
+                        <Label text="Book:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textBookCreateLoan" />
+                        <Label text="Date loan:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textLoanCreateLoan" />
+                        <Label text="Date Check:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textCheckCreateLoan" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="buttonCreateCreateLoan" layoutX="140.0" layoutY="278.0" mnemonicParsing="false" prefWidth="75.0" text="Create" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
