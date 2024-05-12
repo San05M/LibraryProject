@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="library.libraryproject.CreateBook"
-            prefHeight="400.0" prefWidth="600.0">
-
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.libraryproject.CreateBook">
+   <children>
+      <SplitPane dividerPositions="0.4013377926421405" layoutX="1.0" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="192.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="buttonExitCreateBook" layoutX="248.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="72.0" layoutY="87.0" prefHeight="185.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Name:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textNameCreateBook" />
+                        <Label text="Author:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textAuthorCreateBook" />
+                        <Label text="Genre:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textGenreCreateBook" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="24.0" layoutY="28.0" text="Create Book">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonCreateCreateBook" layoutX="134.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Create" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>
