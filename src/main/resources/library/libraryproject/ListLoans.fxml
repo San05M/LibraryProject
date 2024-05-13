@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="library.libraryproject.ListLoans"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.libraryproject.ListLoans">
+    <children>
+        <SplitPane dividerPositions="0.3542713567839196" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="101.0" prefWidth="598.0">
+                    <children>
+                        <Button fx:id="buttonListLoansAddExit" layoutX="509.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="buttonListLoansSearch" layoutX="509.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                        <TextField fx:id="textListLoansName" layoutX="19.0" layoutY="96.0" prefHeight="25.0" prefWidth="75.0" promptText="Name" />
+                        <TextField fx:id="textListLoansBook" layoutX="99.0" layoutY="96.0" prefHeight="25.0" prefWidth="132.0" promptText="Book name" />
+                        <TextField fx:id="textListLoansDataLoan" layoutX="237.0" layoutY="96.0" prefHeight="25.0" prefWidth="91.0" promptText="Data loan" />
+                        <TextField fx:id="textListLoansDataCheck" layoutX="335.0" layoutY="96.0" prefHeight="25.0" prefWidth="105.0" promptText="Data check" />
+                        <Button fx:id="buttonListLoansAddLoan" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="Add Loan">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                        <Label layoutX="23.0" layoutY="59.0" text="Search Loan">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="124.0" prefWidth="598.0">
+                    <children>
+                        <TableView layoutX="25.0" prefHeight="254.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn fx:id="columnListLoansName" prefWidth="90.0" text="Name" />
+                                <TableColumn fx:id="columnListLoansBookName" prefWidth="145.0" text="Book name" />
+                                <TableColumn fx:id="columnListLoansDataLoan" prefWidth="96.0" text="Data loan" />
+                                <TableColumn fx:id="columnListLoansDataCheck" prefWidth="99.0" text="Data check" />
+                        <TableColumn fx:id="columnListLoansContact" prefWidth="86.0" text="Contact" />
+                                <TableColumn fx:id="columnListLoansRemove" prefWidth="81.0" text="Remove" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
 </AnchorPane>
