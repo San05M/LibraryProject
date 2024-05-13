@@ -18,7 +18,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="textPassword" layoutX="108.0" layoutY="178.0" prefHeight="25.0" prefWidth="140.0" promptText="*******" />
-                  <Button fx:id="bottomAccessLogin" layoutX="140.0" layoutY="241.0" mnemonicParsing="false" onAction="#goToMenu" prefWidth="75.0" text="Access" />
+                  <Button fx:id="bottomAccessLogin" layoutX="140.0" layoutY="241.0" mnemonicParsing="false" prefWidth="75.0" text="Access" />
                   <Label layoutX="108.0" layoutY="88.0" prefHeight="27.0" prefWidth="140.0" text="Username:">
                      <font>
                         <Font size="14.0" />
