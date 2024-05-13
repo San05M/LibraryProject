@@ -1,10 +1,20 @@
 package library.libraryproject.libraryInventory;
-
+/**
+ * Class to define book information
+ * @author sandramoyaortega
+ * @version 1
+ * @since 1
+ */
 public class Book {
     private String name;
     private String author;
     private String genre;
-
+    /**
+     * Constructor with parameters
+     * @param name A String with the book name
+     * @param author A String with author name
+     * @param genre A String with the genre book
+     */
     public Book(String name, String author, String genre) {
         this.name = name;
         this.author = author;

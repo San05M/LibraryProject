@@ -1,13 +1,20 @@
 package library.libraryproject.libraryInventory;
-
-
-
+/**
+ * Class to define the persons
+ * @author sandramoyaortega
+ * @version 1
+ * @since 1
+ */
 public class Person {
-
     private String name;
     private String id;
     private String password;
-
+    /**
+     * Constructor with parameters
+     * @param name String with the name
+     * @param id String with the id of user
+     * @param password  String with the password
+     */
     public Person(String name, String id, String password) {
         this.name = name;
         this.id = id;

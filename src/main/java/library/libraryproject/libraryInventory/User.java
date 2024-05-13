@@ -1,11 +1,22 @@
 package library.libraryproject.libraryInventory;
-
+/**
+ * Class to define the users of the library
+ * @author sandramoyaortega
+ * @version 1
+ * @since 1
+ */
 public class User {
     private String name;
     private String id;
     private String email;
     private int phoneNumber;
-
+    /**
+     * Constructor with parameters
+     * @param name String with the name
+     * @param id String with the id of user
+     * @param email  String with the personal email
+     * @param phoneNumber int with the phone number
+     */
     public User(String name, String id, String email, int phoneNumber){
         this.name = name;
         this.id = id;

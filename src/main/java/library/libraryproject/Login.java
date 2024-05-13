@@ -20,13 +20,5 @@ public class Login {
     @FXML
     private Button bottomAccessLogin;
 
-    void goToMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(
-                HelloApplication.class.getResource("Menu.fxml"));
-        Scene view1Scene = new Scene(root);
-        Stage stage =
-                (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(view1Scene);
-        stage.show();
-    }
+
 }

@@ -1,11 +1,24 @@
 package library.libraryproject.libraryInventory;
 import java.util.Date;
+
+/**
+ * Class to define the Loan
+ * @author sandramoyaortega
+ * @version 1
+ * @since 1
+ */
 public class Loan {
     private User user;
     private Book book;
     private Date loanBook;
     private Date checkBook;
-
+    /**
+     * Constructor with parameters
+     * @param user Object type user for the loan
+     * @param book Object type book for the loan
+     * @param loanBook  String with the genre book
+     * @param checkBook  String for the check date (dd/mm/yyyy)
+     */
     public Loan(User user, Book book, Date loanBook, Date checkBook){
         this.user = user;
         this.book = book;
