@@ -7,6 +7,8 @@ import java.util.Map;
  * @author sandramoyaortega
  * @version 1
  * @since 1
+ * @see Book
+ * @see Loan
  */
 public class Inventory {
 

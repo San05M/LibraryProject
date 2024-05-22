@@ -4,6 +4,7 @@ package library.libraryproject.libraryInventory;
  * @author sandramoyaortega
  * @version 1
  * @since 1
+ * @see Person
  */
 public class Worker extends Person {
     public Worker(String name, String id, String password) {

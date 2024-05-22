@@ -4,6 +4,7 @@ package library.libraryproject.libraryInventory;
  * @author sandramoyaortega
  * @version 1
  * @since 1
+ * @see Person
  */
 public class Manager extends Person{
     public Manager(String name, String id, String password) {
