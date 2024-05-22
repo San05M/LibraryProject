@@ -19,6 +19,4 @@ public class Login {
     private TextField textPassword;
     @FXML
     private Button bottomAccessLogin;
-
-
 }

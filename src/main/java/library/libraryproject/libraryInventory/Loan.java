@@ -16,8 +16,8 @@ public class Loan {
      * Constructor with parameters
      * @param user Object type user for the loan
      * @param book Object type book for the loan
-     * @param loanBook  String with the genre book
-     * @param checkBook  String for the check date (dd/mm/yyyy)
+     * @param loanBook  Date for the loan date (dd/mm/yyyy)
+     * @param checkBook  Date for the check date (dd/mm/yyyy)
      */
     public Loan(User user, Book book, Date loanBook, Date checkBook){
         this.user = user;

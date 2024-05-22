@@ -10,7 +10,6 @@ public class Manager extends Person{
         super(name, id, password);
     }
     public void addWorker(){
-
     }
     public void deleteWorker(){
 

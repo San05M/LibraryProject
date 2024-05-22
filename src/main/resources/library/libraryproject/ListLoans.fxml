@@ -44,7 +44,7 @@
                                 <TableColumn fx:id="columnListLoansBookName" prefWidth="145.0" text="Book name" />
                                 <TableColumn fx:id="columnListLoansDataLoan" prefWidth="96.0" text="Data loan" />
                                 <TableColumn fx:id="columnListLoansDataCheck" prefWidth="99.0" text="Data check" />
-                        <TableColumn fx:id="columnListLoansContact" prefWidth="86.0" text="Contact" />
+                                <TableColumn fx:id="columnListLoansContact" prefWidth="86.0" text="Contact" />
                                 <TableColumn fx:id="columnListLoansRemove" prefWidth="81.0" text="Remove" />
                             </columns>
                         </TableView>
