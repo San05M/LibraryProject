@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.libraryproject.CreateWorker">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.libraryproject.CreateWorker">
    <children>
       <SplitPane dividerPositions="0.4013377926421405" prefHeight="400.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="394.0">
                <children>
-                  <Button fx:id="bottomExitCreate" layoutX="248.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                  <Button fx:id="bottomExitCreate" layoutX="248.0" layoutY="26.0" mnemonicParsing="false" onAction="#goToMenuExit" prefHeight="25.0" prefWidth="75.0" text="Exit">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -43,7 +38,7 @@
                         <TextField fx:id="textCreateId" prefHeight="25.0" prefWidth="140.0" promptText="id" />
                      </children>
                   </VBox>
-                  <Button fx:id="bottonCreateAcount" layoutX="134.0" layoutY="300.0" mnemonicParsing="false" prefWidth="75.0" text="Create" />
+                  <Button fx:id="bottonCreateAcount" layoutX="134.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToMenuCreate" prefWidth="75.0" text="Create" />
                </children>
             </AnchorPane>
         </items>
