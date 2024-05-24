@@ -1,5 +1,6 @@
 package library.libraryproject;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -38,5 +39,9 @@ public class Menu {
     public void goToListUsers(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("ListUsers.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+    }
+
+    public void closeApp(ActionEvent actionEvent) throws IOException {
+        Platform.exit();
     }
 }

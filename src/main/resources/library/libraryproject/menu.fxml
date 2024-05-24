@@ -32,7 +32,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="bottomExit" layoutX="241.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                  <Button fx:id="bottomExit" layoutX="241.0" layoutY="30.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="25.0" prefWidth="75.0" text="Exit">
                      <font>
                         <Font size="14.0" />
                      </font>
