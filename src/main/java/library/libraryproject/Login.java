@@ -19,4 +19,9 @@ public class Login {
     private TextField textPassword;
     @FXML
     private Button bottomAccessLogin;
+
+    public void goToMenu(ActionEvent actionEvent) throws IOException {
+        SceneLoader.loadScreen("menu.fxml",
+                (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+    }
 }
