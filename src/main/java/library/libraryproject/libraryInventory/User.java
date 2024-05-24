@@ -2,7 +2,7 @@ package library.libraryproject.libraryInventory;
 /**
  * Class to define the users of the library
  * @author sandramoyaortega
- * @version 1
+ * @version 1.1
  * @since 1
  */
 public class User {
@@ -50,6 +50,7 @@ public class User {
     public int getPhoneNumber() {
         return phoneNumber;
     }
+
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;

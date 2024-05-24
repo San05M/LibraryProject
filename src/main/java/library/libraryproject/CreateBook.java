@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CreateBook {
+
     @FXML
     private Button buttonExitCreateBook;
     @FXML
@@ -22,7 +23,7 @@ public class CreateBook {
     private Button buttonCreateCreateBook;
 
     public void goToListBook(ActionEvent actionEvent) throws IOException {
-        SceneLoader.loadScreen("ListBook.fxml",
+        SceneLoader.loadScreen("ListBooks.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
 

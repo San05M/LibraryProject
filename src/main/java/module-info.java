@@ -4,5 +4,6 @@ module library.libraryproject {
 
 
     opens library.libraryproject to javafx.fxml;
+    opens library.libraryproject.libraryInventory;
     exports library.libraryproject;
 }

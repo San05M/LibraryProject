@@ -38,7 +38,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="124.0" prefWidth="598.0">
                <children>
-                  <TableView layoutX="25.0" prefHeight="254.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tableListBooks" layoutX="25.0" prefHeight="254.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="columnListBookId" prefWidth="90.0" text="ISBN" />
                       <TableColumn fx:id="columnListBookName" prefWidth="169.0" text="Name" />
