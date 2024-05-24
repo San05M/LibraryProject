@@ -10,7 +10,7 @@
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="101.0" prefWidth="598.0">
                     <children>
-                        <Button fx:id="buttonListUsersExit" layoutX="509.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                        <Button fx:id="buttonListUsersExit" layoutX="509.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToMenu" prefHeight="25.0" prefWidth="75.0" text="Exit">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -22,7 +22,7 @@
                         </Button>
                         <TextField fx:id="textListUsersId" layoutX="19.0" layoutY="96.0" prefHeight="25.0" prefWidth="75.0" promptText="id" />
                         <TextField fx:id="textListUsersName" layoutX="99.0" layoutY="96.0" prefHeight="25.0" prefWidth="132.0" promptText="Name" />
-                        <Button fx:id="buttonListUserAddUser" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="Add User">
+                        <Button fx:id="buttonListUserAddUser" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToCreateUser" prefHeight="30.0" prefWidth="85.0" text="Add User">
                             <font>
                                 <Font size="14.0" />
                             </font>
