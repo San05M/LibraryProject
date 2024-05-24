@@ -11,7 +11,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="192.0" />
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="buttonExitCreateBook" layoutX="248.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                  <Button fx:id="buttonExitCreateBook" layoutX="248.0" layoutY="26.0" mnemonicParsing="false" onAction="#goToListBook" prefHeight="25.0" prefWidth="75.0" text="Exit">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -43,7 +43,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="buttonCreateCreateBook" layoutX="134.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Create" />
+                  <Button fx:id="buttonCreateCreateBook" layoutX="134.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToMenu" prefHeight="25.0" prefWidth="75.0" text="Create" />
                </children>
             </AnchorPane>
         </items>
