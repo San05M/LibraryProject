@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import library.libraryproject.libraryInventory.Book;
+import library.libraryproject.libraryInventory.Inventory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,6 +47,7 @@ public class ListBooks implements Initializable {
     @FXML
     private TableColumn columnListBookRemove;
     private ObservableList<Book> book;
+    private Inventory inventory;
 
     public void goToMenu(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("menu.fxml",
@@ -53,7 +55,7 @@ public class ListBooks implements Initializable {
     }
 
     public void goToCreateBook(ActionEvent actionEvent) throws IOException {
-        SceneLoader.loadScreen("CreateBook.fxml",
+        SceneLoader.loadScreen("menu.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
 

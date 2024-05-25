@@ -24,6 +24,8 @@ public class CreateWorker {
     public void goToMenuCreate(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("menu.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+
+
     }
 
     public void goToMenuExit(ActionEvent actionEvent) throws IOException {

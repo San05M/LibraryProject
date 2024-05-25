@@ -39,7 +39,7 @@ public class ListLoans {
     private TableColumn columnListLoansRemove;
 
     public void goToCreateLoan(ActionEvent actionEvent) throws IOException {
-        SceneLoader.loadScreen("CreateLoan.fxml",
+        SceneLoader.loadScreen("menu.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
 

@@ -9,7 +9,7 @@ public class User {
     private String name;
     private String id;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     /**
      * Constructor with parameters
      * @param name String with the name
@@ -17,7 +17,7 @@ public class User {
      * @param email  String with the personal email
      * @param phoneNumber int with the phone number
      */
-    public User(String name, String id, String email, int phoneNumber){
+    public User(String name, String id, String email, String phoneNumber){
         this.name = name;
         this.id = id;
         this.email = email;
@@ -47,12 +47,17 @@ public class User {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString(){
+        return name + ";" + id + ";" + email + ";" + phoneNumber;
     }
 }

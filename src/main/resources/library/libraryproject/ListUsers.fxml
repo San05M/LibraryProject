@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -15,23 +17,38 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="buttonListUsersSearch" layoutX="509.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <TextField fx:id="textListUsersId" layoutX="19.0" layoutY="96.0" prefHeight="25.0" prefWidth="75.0" promptText="id" />
-                        <TextField fx:id="textListUsersName" layoutX="99.0" layoutY="96.0" prefHeight="25.0" prefWidth="132.0" promptText="Name" />
-                        <Button fx:id="buttonListUserAddUser" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToCreateUser" prefHeight="30.0" prefWidth="85.0" text="Add User">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Label layoutX="23.0" layoutY="59.0" text="Search user">
+                  <HBox alignment="CENTER" depthTest="ENABLE" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="571.0" spacing="15.0">
+                     <children>
+                              <TextField fx:id="textListUsersId" prefHeight="25.0" prefWidth="54.0" promptText="id" />
+                              <TextField fx:id="textListUsersName" prefHeight="25.0" prefWidth="154.0" promptText="Name" />
+                        <TextField fx:id="textListUsersEmail" prefHeight="25.0" prefWidth="121.0" promptText="E-mail" />
+                        <TextField fx:id="textListPhoneNumber" prefHeight="25.0" prefWidth="107.0" promptText="Phone Number">
+                           <opaqueInsets>
+                              <Insets left="10.0" right="10.0" />
+                           </opaqueInsets></TextField>
+                              <Button fx:id="buttonListUsersAdd" mnemonicParsing="false" onAction="#addUser" prefHeight="25.0" prefWidth="75.0" text="Add">
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                              </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets left="50.0" right="50.0" top="50.0" />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </HBox>
+                        <Label layoutX="19.0" layoutY="19.0" text="Add User">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
+                  <Label layoutX="19.0" layoutY="101.0" text="List Users">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="124.0" prefWidth="598.0">
