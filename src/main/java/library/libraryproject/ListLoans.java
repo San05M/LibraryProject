@@ -11,10 +11,13 @@ import library.libraryproject.libraryInventory.Book;
 import library.libraryproject.libraryInventory.Loan;
 import library.libraryproject.libraryInventory.User;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
@@ -63,6 +66,21 @@ public class ListLoans implements Initializable {
     @FXML
     private TableColumn columnListLoansRemove;
 
+    /**
+     * Initializes the ListLoans.
+     * Set the cells with the name of the getters.
+     * Reads loan data from file and populates the TableView only with existing loans.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.columnListLoansName.setCellValueFactory(new PropertyValueFactory<>("userName"));
+        this.columnListLoansBookName.setCellValueFactory(new PropertyValueFactory<>("bookName"));
+        this.columnListLoansDataLoan.setCellValueFactory(new PropertyValueFactory<>("loanBook"));
+        this.columnListLoansDataCheck.setCellValueFactory(new PropertyValueFactory<>("checkBook"));
+
+        List<Loan> loans = readLoansFromFile();
+        this.tableListLoans.getItems().addAll(loans);
+    }
 
     /**
      * Loads the main menu screen.
@@ -114,6 +132,7 @@ public class ListLoans implements Initializable {
             }
         }
     }
+
     /**
      * Finds a user by their name.
      *
@@ -181,27 +200,12 @@ public class ListLoans implements Initializable {
      * @param loan Save
      */
     private void saveLoanToFile(Loan loan) {
-        try (PrintWriter pw = new PrintWriter(Files.newBufferedWriter(Paths.get("loans.txt")))) {
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("loans.txt", true)))) {
+            pw.println();
             pw.println(loan.toString());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException("Error adding loan to file", e);
         }
-    }
-
-    /**
-     * Initializes the ListLoans.
-     * Set the cells with the name of the getters.
-     * Reads loan data from file and populates the TableView only with existing loans.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.columnListLoansName.setCellValueFactory(new PropertyValueFactory<>("userName"));
-        this.columnListLoansBookName.setCellValueFactory(new PropertyValueFactory<>("bookName"));
-        this.columnListLoansDataLoan.setCellValueFactory(new PropertyValueFactory<>("loanBook"));
-        this.columnListLoansDataCheck.setCellValueFactory(new PropertyValueFactory<>("checkBook"));
-
-        List<Loan> loans = readLoansFromFile();
-        this.tableListLoans.getItems().addAll(loans);
     }
 
     /**
