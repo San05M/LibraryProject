@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -15,7 +17,7 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="ButtonListBookSearch" layoutX="509.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search">
+                  <Button fx:id="ButtonBookAdd" layoutX="509.0" layoutY="94.0" mnemonicParsing="false" onAction="#addBook" prefHeight="25.0" prefWidth="75.0" text="Add">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -24,11 +26,6 @@
                   <TextField fx:id="textListBookName" layoutX="99.0" layoutY="96.0" prefHeight="25.0" prefWidth="132.0" promptText="Name" />
                   <TextField fx:id="textListBookAuthor" layoutX="237.0" layoutY="96.0" prefHeight="25.0" prefWidth="91.0" promptText="Author" />
                   <TextField fx:id="textListBookGenre" layoutX="335.0" layoutY="96.0" prefHeight="25.0" prefWidth="105.0" promptText="Genre" />
-                  <Button fx:id="buttonListBookAddBook" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToCreateBook" prefHeight="30.0" prefWidth="85.0" text="Add Book">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
                   <Label layoutX="23.0" layoutY="59.0" text="Search book">
                      <font>
                         <Font size="14.0" />

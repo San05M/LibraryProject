@@ -15,25 +15,30 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="buttonListLoansSearch" layoutX="509.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <TextField fx:id="textListLoansName" layoutX="19.0" layoutY="96.0" prefHeight="25.0" prefWidth="75.0" promptText="Name" />
-                        <TextField fx:id="textListLoansBook" layoutX="99.0" layoutY="96.0" prefHeight="25.0" prefWidth="132.0" promptText="Book name" />
-                        <TextField fx:id="textListLoansDataLoan" layoutX="237.0" layoutY="96.0" prefHeight="25.0" prefWidth="91.0" promptText="Data loan" />
-                        <TextField fx:id="textListLoansDataCheck" layoutX="335.0" layoutY="96.0" prefHeight="25.0" prefWidth="105.0" promptText="Data check" />
-                        <Button fx:id="buttonListLoansAddLoan" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToCreateLoan" prefHeight="30.0" prefWidth="85.0" text="Add Loan">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Label layoutX="23.0" layoutY="59.0" text="Search Loan">
+                  <HBox layoutX="15.0" layoutY="64.0" spacing="10.0">
+                     <children>
+                              <TextField fx:id="textListLoansName" prefHeight="25.0" prefWidth="75.0" promptText="Name" />
+                              <TextField fx:id="textListLoansBook" prefHeight="25.0" prefWidth="91.0" promptText="Book name" />
+                              <TextField fx:id="textListLoansDataLoan" prefHeight="25.0" prefWidth="75.0" promptText="Data loan" />
+                              <TextField fx:id="textListLoansDataCheck" prefHeight="25.0" prefWidth="75.0" promptText="Data check" />
+                        <TextField fx:id="textLoanContact" prefHeight="25.0" prefWidth="127.0" promptText="Contact" />
+                              <Button fx:id="buttonAddLoan" mnemonicParsing="false" onAction="#addLoan" prefHeight="25.0" prefWidth="75.0" text="Add">
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                              </Button>
+                     </children>
+                  </HBox>
+                        <Label layoutX="19.0" layoutY="19.0" text="Add Loan">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
+                  <Label layoutX="19.0" layoutY="104.0" text="Loans List">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="124.0" prefWidth="598.0">

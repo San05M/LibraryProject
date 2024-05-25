@@ -6,26 +6,29 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import library.libraryproject.libraryInventory.Book;
 import library.libraryproject.libraryInventory.Inventory;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class ListBooks implements Initializable {
+    @FXML
+    private Button ButtonBookAdd;
     @FXML
     private TableView<Book> tableListBooks;
     @FXML
     private Button ButtonListBookExit;
-    @FXML
-    private Button ButtonListBookSearch;
     @FXML
     private TextField textListBookId;
     @FXML
@@ -34,8 +37,6 @@ public class ListBooks implements Initializable {
     private TextField textListBookAuthor;
     @FXML
     private TextField textListBookGenre;
-    @FXML
-    private Button buttonListBookAddBook;
     @FXML
     private TableColumn<Book, String> columnListBookId;
     @FXML
@@ -54,11 +55,6 @@ public class ListBooks implements Initializable {
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
 
-    public void goToCreateBook(ActionEvent actionEvent) throws IOException {
-        SceneLoader.loadScreen("menu.fxml",
-                (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.columnListBookName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -66,14 +62,47 @@ public class ListBooks implements Initializable {
         this.columnListBookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
         this.columnListBookGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
 
-        this.book = FXCollections.observableArrayList(
-                new Book("The Priory of the Orange Tree", "Samantha Shannon", "Fantasy Fiction", "12345678")
-        );
+        this.book = FXCollections.observableArrayList(Objects.requireNonNull(readFile()));
         try {
             this.tableListBooks.setItems(book);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void addBook(ActionEvent actionEvent) {
+        if (textListBookAuthor.getText().isEmpty() ||
+                textListBookId.getText().isEmpty() ||
+                textListBookGenre.getText().isEmpty() ||
+                textListBookName.getText().isEmpty()) {
 
+            Alert dialog = new Alert(Alert.AlertType.ERROR);
+            dialog.setTitle("Error");
+            dialog.setHeaderText("Error adding data");
+            dialog.setContentText("No field can be empty");
+            dialog.showAndWait();
+        } else {
+            book.add(new Book(textListBookName.getText(),
+                    textListBookAuthor.getText(),
+                    textListBookGenre.getText(),
+                    textListBookId.getText()));
+            saveFile(book);
+        }
+    }
+
+    private static void saveFile(List<Book> book){
+        try(PrintWriter pw = new PrintWriter("books.txt")){
+            book.forEach(b -> pw.println(b.toString()));
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static List<Book> readFile(){
+        try{
+            return Files.lines(Paths.get("books.txt")).map(line -> new Book(line.split(";")[0],line.split(";")[1],
+                    line.split(";")[2],line.split(";")[3])).collect(Collectors.toList());
+        }catch (Exception e){
+            return null;
+        }
     }
 }

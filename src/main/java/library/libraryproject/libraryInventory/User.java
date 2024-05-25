@@ -56,6 +56,10 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * Returns a string representation of the user object.
+     * @return A string representing the user object in the format: "name;id;email;phoneNumber"
+     */
     @Override
     public String toString(){
         return name + ";" + id + ";" + email + ";" + phoneNumber;

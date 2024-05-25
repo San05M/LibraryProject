@@ -1,5 +1,5 @@
 package library.libraryproject.libraryInventory;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Class to define the Loan
@@ -10,8 +10,8 @@ import java.util.Date;
 public class Loan {
     private User user;
     private Book book;
-    private Date loanBook;
-    private Date checkBook;
+    private LocalDate loanBook;
+    private LocalDate checkBook;
     /**
      * Constructor with parameters
      * @param user Object type user for the loan
@@ -19,7 +19,7 @@ public class Loan {
      * @param loanBook  Date for the loan date (dd/mm/yyyy)
      * @param checkBook  Date for the check date (dd/mm/yyyy)
      */
-    public Loan(User user, Book book, Date loanBook, Date checkBook){
+    public Loan(User user, Book book, LocalDate loanBook, LocalDate checkBook){
         this.user = user;
         this.book = book;
         this.loanBook = loanBook;
@@ -42,19 +42,29 @@ public class Loan {
         this.book = book;
     }
 
-    public Date getLoanBook() {
+    public LocalDate getLoanBook() {
         return loanBook;
     }
 
-    public void setLoanBook(Date loanBook) {
+    public void setLoanBook(LocalDate loanBook) {
         this.loanBook = loanBook;
     }
 
-    public Date getCheckBook() {
+    public LocalDate getCheckBook() {
         return checkBook;
     }
 
-    public void setCheckBook(Date checkBook) {
+    public void setCheckBook(LocalDate checkBook) {
         this.checkBook = checkBook;
+    }
+
+    public String getUserName() {
+        return user.getName();
+    }
+    public String getBookName() {
+        return book.getName();
+    }
+    public String toString() {
+        return user.getName() + ";" + book.getName() + ";" + loanBook + ";" + checkBook;
     }
 }

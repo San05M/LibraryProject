@@ -31,7 +31,6 @@ public class ListUsers implements Initializable {
     private Button buttonListUsersAdd;
     @FXML
     private TextField textListUsersEmail;
-
     @FXML
     private Button buttonListUsersExit;
     @FXML

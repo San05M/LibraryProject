@@ -6,3 +6,4 @@ Sergi López Sánchez;1115;SergiLopez@gmail.com;666117846
 Miguel Ángel Gómez Mena;1116;MangelGomez@gmail.com;611222333
 Sandra Moya Ortega;1117;SandraMoya@gmail.com;666777888
 Marcos Cires López;1118;MarcosCires@gmail.com;677755544
+María Solano Garrido;1119;MariaSolano@gmail.com;666777333
