@@ -75,11 +75,7 @@ public class ListBooks implements Initializable {
                 textListBookGenre.getText().isEmpty() ||
                 textListBookName.getText().isEmpty()) {
 
-            Alert dialog = new Alert(Alert.AlertType.ERROR);
-            dialog.setTitle("Error");
-            dialog.setHeaderText("Error adding data");
-            dialog.setContentText("No field can be empty");
-            dialog.showAndWait();
+            SceneLoader.alertSpam();
         } else {
             book.add(new Book(textListBookName.getText(),
                     textListBookAuthor.getText(),

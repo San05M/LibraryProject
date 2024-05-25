@@ -79,11 +79,7 @@ public class ListUsers implements Initializable {
                 textListUsersEmail.getText().isEmpty() ||
                 textListPhoneNumber.getText().isEmpty()) {
 
-            Alert dialog = new Alert(Alert.AlertType.ERROR);
-            dialog.setTitle("Error");
-            dialog.setHeaderText("Error adding data");
-            dialog.setContentText("No field can be empty");
-            dialog.showAndWait();
+            SceneLoader.alertSpam();
         } else {
             user.add(new User(textListUsersName.getText(),
                     textListUsersId.getText(),

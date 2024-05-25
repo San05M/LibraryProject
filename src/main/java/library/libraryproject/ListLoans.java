@@ -105,11 +105,7 @@ public class ListLoans implements Initializable {
                 textListLoansDataLoan.getText().isEmpty() ||
                 textListLoansDataCheck.getText().isEmpty()) {
 
-            Alert dialog = new Alert(Alert.AlertType.ERROR);
-            dialog.setTitle("Error");
-            dialog.setHeaderText("Error adding loan");
-            dialog.setContentText("No field can be empty");
-            dialog.showAndWait();
+            SceneLoader.alertSpam();
         } else {
             String userName = textListLoansName.getText();
             String bookName = textListLoansBook.getText();
