@@ -56,10 +56,9 @@
                         <TableView fx:id="tableListUsers" layoutX="25.0" prefHeight="254.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
                                 <TableColumn fx:id="columnListUsersId" prefWidth="90.0" text="id" />
-                                <TableColumn fx:id="columnListUserName" prefWidth="169.0" text="Name" />
-                                <TableColumn fx:id="columnListUsersEmail" prefWidth="134.0" text="E-mail" />
-                                <TableColumn fx:id="columnListUserPhoneNumber" prefWidth="102.0" text="Phone Number" />
-                                <TableColumn fx:id="columnListUserRemove" prefWidth="102.0" text="Remove" />
+                                <TableColumn fx:id="columnListUserName" prefWidth="208.0" text="Name" />
+                                <TableColumn fx:id="columnListUsersEmail" prefWidth="151.0" text="E-mail" />
+                                <TableColumn fx:id="columnListUserPhoneNumber" prefWidth="148.0" text="Phone Number" />
                             </columns>
                         </TableView>
                     </children>

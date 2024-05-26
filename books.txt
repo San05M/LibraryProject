@@ -2,3 +2,27 @@ The Priory of the Orange Tree;Samantha Shannon;Fantasy Fiction;12345678;yes
 BlackWater;Michael Mcdowell;Mystery;12343212;no
 To Kill a Mockingbird;Harper Lee;Drama;12342134;no
 The bridgerton Part 1;Julia Quinn;Romance;12347890;no
+1984;George Orwell;Dystopian Fiction;12349923;yes
+Pride and Prejudice;Jane Austen;Romance;12340321;yes
+The Catcher in the Rye;J.D. Salinger;Coming-of-Age Fiction;12341111;yes
+The Great Gatsby;F. Scott Fitzgerald;Tragedy;12348765;yes
+Harry Potter and the Sorcerer's Stone;J.K. Rowling;Fantasy Fiction;12348888;yes
+The Lord of the Rings;J.R.R. Tolkien;High Fantasy;12347777;yes
+The Hunger Games;Suzanne Collins;Science Fiction;12344444;yes
+Gone with the Wind;Margaret Mitchell;Historical Fiction;12343333;yes
+The Da Vinci Code;Dan Brown;Mystery Thriller;12340000;yes
+The Alchemist;Paulo Coelho;Fantasy Fiction;12345555;yes
+The Girl with the Dragon Tattoo;Stieg Larsson;Crime Fiction;12342222;yes
+The Shining;Stephen King;Horror Fiction;12349999;yes
+Moby-Dick;Herman Melville;Adventure Fiction;12346666;yes
+War and Peace;Leo Tolstoy;Historical Fiction;12344443;yes
+The Road;Cormac McCarthy;Post-Apocalyptic Fiction;12348889;yes
+The Picture of Dorian Gray;Oscar Wilde;Gothic Fiction;12345553;yes
+Alice's Adventures in Wonderland;Lewis Carroll;Fantasy Fiction;12341234;yes
+Frankenstein;Mary Shelley;Gothic Fiction;12347789;yes
+The Hobbit;J.R.R. Tolkien;Fantasy Fiction;12347775;yes
+The Chronicles of Narnia;C.S. Lewis;Fantasy Fiction;12347770;yes
+Dracula;Bram Stoker;Gothic Fiction;12348887;yes
+Les Misérables;Victor Hugo;Historical Fiction;12348886;yes
+Crime and Punishment;Fyodor Dostoevsky;Psychological Fiction;12347771;yes
+Don Quixote;Miguel de Cervantes;Satire;12347772;yes
