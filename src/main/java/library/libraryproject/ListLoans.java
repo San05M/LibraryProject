@@ -1,5 +1,7 @@
 package library.libraryproject;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,6 +33,10 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class ListLoans implements Initializable {
+    @FXML
+    private TextField textBookDelete;
+    @FXML
+    private Button buttonDelete;
     @FXML
     private TextField textLoanContact;
     @FXML
@@ -115,10 +121,37 @@ public class ListLoans implements Initializable {
                     Loan loan = new Loan(user, book, loanBook, checkBook);
                     tableListLoans.getItems().add(loan);
                     saveLoanToFile(loan);
-                    updateBookFile(book);
+                    updateBookFile(book, "No");
                 }else{
                     SceneLoader.alertSpam("Book not available.");
                 }
+            }
+        }
+    }
+
+    public void deleteLoan(ActionEvent actionEvent) {
+        if(textBookDelete.getText().isEmpty()){
+            SceneLoader.alertSpam("Error: Field empty.");
+        }else{
+            String name = textBookDelete.getText();
+            List<Loan> loans = readLoansFromFile();
+            Loan loanDelete = loans.stream()
+                    .filter(loan -> loan.getBookName().trim().equals(name.trim()))
+                    .findFirst().orElse(null);
+
+            if(loanDelete == null){
+                SceneLoader.alertSpam("Error: loan not found.");
+            }else{
+                loans.remove(loanDelete);
+                saveLoanToFileAftherDelete(loans);
+                Book book = findBookByName(name);
+                if(book == null){
+                    SceneLoader.alertSpam("Error: book not found.");
+                }else{
+                    book.setAvailable("yes");
+                    updateBookFile(book, "yes");
+                }
+                updateTable(loans);
             }
         }
     }
@@ -146,6 +179,19 @@ public class ListLoans implements Initializable {
         List<Book> books = readFileBooks();
         return books.stream()
                 .filter(book -> book.getName().trim().equals(name.trim()))
+                .findFirst().orElse(null);
+    }
+
+    /**
+     * Finds a Load by their book's name.
+     *
+     * @param name The name of the user to find
+     * @return The Book object if found or null
+     */
+    private Loan findLoanByName(String name) {
+        List<Loan> loans = readLoansFromFile();
+        return loans.stream()
+                .filter(loan -> loan.getBookName().trim().equals(name.trim()))
                 .findFirst().orElse(null);
     }
 
@@ -197,6 +243,14 @@ public class ListLoans implements Initializable {
         }
     }
 
+    private void saveLoanToFileAftherDelete(List<Loan> loans){
+        try(PrintWriter pw = new PrintWriter("loans.txt")){
+            loans.forEach(l -> pw.println(l.toString()));
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * Reads loan data from file and returns a list.
      *
@@ -218,13 +272,13 @@ public class ListLoans implements Initializable {
         }
     }
 
-    private void updateBookFile(Book b){
+    private void updateBookFile(Book b, String text){
         try {
             List<String> lines = Files.readAllLines(Paths.get("books.txt"));
             for(int i=0; i < lines.size();i++){
                     String[] partslines=lines.get(i).split(";");
                     if(b.getName().equals(partslines[0])){
-                        partslines[4] = "no";
+                        partslines[4] = text;
                         lines.set(i, String.join(";",partslines));
                     }
             }
@@ -233,4 +287,10 @@ public class ListLoans implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    private void updateTable(List<Loan> loans){
+        ObservableList<Loan> updateloans = FXCollections.observableArrayList(loans);
+        this.tableListLoans.setItems(updateloans);
+    }
+
 }

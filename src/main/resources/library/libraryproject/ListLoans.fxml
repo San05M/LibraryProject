@@ -10,12 +10,12 @@
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="101.0" prefWidth="598.0">
                     <children>
-                        <Button fx:id="buttonListLoansAddExit" layoutX="509.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToMenu" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                        <Button fx:id="buttonListLoansAddExit" layoutX="508.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToMenu" prefHeight="25.0" prefWidth="75.0" text="Exit">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                  <HBox layoutX="15.0" layoutY="64.0" spacing="10.0">
+                  <HBox alignment="CENTER" layoutX="15.0" layoutY="54.0" spacing="10.0">
                      <children>
                               <TextField fx:id="textListLoansName" prefHeight="25.0" prefWidth="75.0" promptText="Name" />
                               <TextField fx:id="textListLoansBook" prefHeight="25.0" prefWidth="91.0" promptText="Book name" />
@@ -34,11 +34,12 @@
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                  <Label layoutX="19.0" layoutY="104.0" text="Loans List">
+                  <TextField fx:id="textBookDelete" layoutX="370.0" layoutY="95.0" prefHeight="25.0" prefWidth="127.0" promptText="Book name to Delete" />
+                  <Button fx:id="buttonDelete" layoutX="509.0" layoutY="92.0" mnemonicParsing="false" onAction="#deleteLoan" prefHeight="27.0" prefWidth="75.0" text="Delete">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </Label>
+                  </Button>
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="124.0" prefWidth="598.0">
