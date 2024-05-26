@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import library.libraryproject.libraryInventory.Book;
-import library.libraryproject.libraryInventory.Inventory;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,6 +22,10 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class ListBooks implements Initializable {
+    @FXML
+    private TextField textToSearch;
+    @FXML
+    private Button buttonSearch;
     @FXML
     private Button ButtonBookAdd;
     @FXML
@@ -48,7 +51,6 @@ public class ListBooks implements Initializable {
     @FXML
     private TableColumn columnListBookRemove;
     private ObservableList<Book> book;
-    private Inventory inventory;
 
     public void goToMenu(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("menu.fxml",
@@ -99,6 +101,36 @@ public class ListBooks implements Initializable {
                     line.split(";")[2],line.split(";")[3])).collect(Collectors.toList());
         }catch (Exception e){
             return null;
+        }
+    }
+
+    private Book findBookByName(String name) {
+        List<Book> books = readFile();
+        return books.stream()
+                .filter(book -> book.getName().trim().equals(name.trim()))
+                .findFirst().orElse(null);
+    }
+
+    public void searchBook(ActionEvent actionEvent) {
+        String name = textToSearch.getText();
+
+        if(name.isEmpty()){
+            this.book = FXCollections.observableArrayList(Objects.requireNonNull(readFile()));
+            try {
+                this.tableListBooks.setItems(book);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else{
+            Book book = findBookByName(name);
+
+            if (book != null) {
+                ObservableList<Book> searchResult = FXCollections.observableArrayList();
+                searchResult.add(book);
+                this.tableListBooks.setItems(searchResult);
+            } else {
+                this.tableListBooks.setItems(FXCollections.observableArrayList());
+            }
         }
     }
 }

@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import library.libraryproject.libraryInventory.Book;
 import library.libraryproject.libraryInventory.Loan;
 import library.libraryproject.libraryInventory.User;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -39,10 +38,6 @@ public class ListLoans implements Initializable {
     @FXML
     private TableView tableListLoans;
     @FXML
-    private Button buttonListLoansAddExit;
-    @FXML
-    private Button buttonListLoansSearch;
-    @FXML
     private TextField textListLoansName;
     @FXML
     private TextField textListLoansBook;
@@ -50,8 +45,6 @@ public class ListLoans implements Initializable {
     private TextField textListLoansDataLoan;
     @FXML
     private TextField textListLoansDataCheck;
-    @FXML
-    private Button buttonListLoansAddLoan;
     @FXML
     private TableColumn columnListLoansName;
     @FXML

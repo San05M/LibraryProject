@@ -30,15 +30,9 @@
                            </font>
                         </Label>
                         <TextField fx:id="textCreatePassword" prefHeight="25.0" prefWidth="140.0" promptText="*******" />
-                        <Label prefHeight="20.0" prefWidth="140.0" text="id:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="textCreateId" prefHeight="25.0" prefWidth="140.0" promptText="id" />
                      </children>
                   </VBox>
-                  <Button fx:id="bottonCreateAcount" layoutX="134.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToMenuCreate" prefWidth="75.0" text="Create" />
+                  <Button fx:id="bottonCreateAcount" layoutX="135.0" layoutY="272.0" mnemonicParsing="false" onAction="#goToMenuCreate" prefWidth="75.0" text="Create" />
                </children>
             </AnchorPane>
         </items>

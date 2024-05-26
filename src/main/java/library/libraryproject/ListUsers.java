@@ -1,6 +1,5 @@
 package library.libraryproject;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,9 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import library.libraryproject.libraryInventory.Inventory;
 import library.libraryproject.libraryInventory.User;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
@@ -50,7 +47,6 @@ public class ListUsers implements Initializable {
     @FXML
     private TableColumn columnListUserRemove;
     private ObservableList<User> user;
-    private Inventory inventory;
 
     public void goToMenu(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("menu.fxml",

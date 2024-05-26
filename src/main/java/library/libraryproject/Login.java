@@ -3,17 +3,12 @@ package library.libraryproject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import library.libraryproject.libraryInventory.Loan;
 import library.libraryproject.libraryInventory.Manager;
 import library.libraryproject.libraryInventory.Person;
 import library.libraryproject.libraryInventory.Worker;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;

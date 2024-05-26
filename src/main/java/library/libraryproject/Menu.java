@@ -8,8 +8,6 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import library.libraryproject.libraryInventory.Manager;
 import library.libraryproject.libraryInventory.Person;
-import library.libraryproject.libraryInventory.User;
-import library.libraryproject.libraryInventory.Worker;
 
 import java.io.IOException;
 import java.nio.file.Files;

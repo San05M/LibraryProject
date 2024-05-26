@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import library.libraryproject.libraryInventory.Worker;
 import javafx.collections.FXCollections;
-import javafx.scene.control.Alert;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -31,8 +30,7 @@ public class CreateWorker {
     private Button bottonCreateAcount;
 
     public void goToMenuCreate(ActionEvent actionEvent) throws IOException {
-        if(textCreateId.getText().isEmpty() ||
-                textCreatePassword.getText().isEmpty() ||
+        if(textCreatePassword.getText().isEmpty() ||
                 textCreateUser.getText().isEmpty()) {
             SceneLoader.alertSpam("You are not a Manager!");
         }else{
