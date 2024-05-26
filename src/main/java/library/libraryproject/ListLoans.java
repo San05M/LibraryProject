@@ -107,12 +107,18 @@ public class ListLoans implements Initializable {
             User user = findUserByName(userName);
             Book book = findBookByName(bookName);
 
-            if (user == null || book == null) {
+            if(user == null || book == null) {
                 SceneLoader.alertSpam("User or book not found");
             } else {
-                Loan loan = new Loan(user, book, loanBook, checkBook);
-                tableListLoans.getItems().add(loan);
-                saveLoanToFile(loan);
+                if(book.getAvailable().equals("yes")){
+                    book.setAvailable("no");
+                    Loan loan = new Loan(user, book, loanBook, checkBook);
+                    tableListLoans.getItems().add(loan);
+                    saveLoanToFile(loan);
+                    updateBookFile(book);
+                }else{
+                    SceneLoader.alertSpam("Book not available.");
+                }
             }
         }
     }
@@ -170,7 +176,7 @@ public class ListLoans implements Initializable {
             return Files.lines(Paths.get("books.txt"))
                     .map(line -> {
                         String[] parts = line.split(";");
-                        return new Book(parts[0], parts[1], parts[2], parts[3]);
+                        return new Book(parts[0], parts[1], parts[2], parts[3], parts[4]);
                     })
                     .collect(Collectors.toList());
         } catch (Exception e) {
@@ -185,7 +191,6 @@ public class ListLoans implements Initializable {
      */
     private void saveLoanToFile(Loan loan) {
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("loans.txt", true)))) {
-            pw.println();
             pw.println(loan.toString());
         } catch (IOException e) {
             throw new RuntimeException("Error adding loan to file", e);
@@ -209,6 +214,22 @@ public class ListLoans implements Initializable {
                         return new Loan(user, book, loanBook, returnDate);
                     }).collect(Collectors.toList());
         } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void updateBookFile(Book b){
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("books.txt"));
+            for(int i=0; i < lines.size();i++){
+                    String[] partslines=lines.get(i).split(";");
+                    if(b.getName().equals(partslines[0])){
+                        partslines[4] = "no";
+                        lines.set(i, String.join(";",partslines));
+                    }
+            }
+            Files.write(Paths.get("books.txt"), lines);
+        }catch (IOException e){
             throw new RuntimeException(e);
         }
     }

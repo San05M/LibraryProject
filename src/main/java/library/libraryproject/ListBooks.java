@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class ListBooks implements Initializable {
+
     @FXML
     private TextField textToSearch;
     @FXML
@@ -49,6 +50,8 @@ public class ListBooks implements Initializable {
     @FXML
     private TableColumn<Book, String> columnListBookGenre;
     @FXML
+    private TableColumn<Book, String> columnListBookAvailable;
+    @FXML
     private TableColumn columnListBookRemove;
     private ObservableList<Book> book;
 
@@ -63,6 +66,7 @@ public class ListBooks implements Initializable {
         this.columnListBookId.setCellValueFactory(new PropertyValueFactory<>("id"));
         this.columnListBookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
         this.columnListBookGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        this.columnListBookAvailable.setCellValueFactory(new PropertyValueFactory<>("available"));
 
         this.book = FXCollections.observableArrayList(Objects.requireNonNull(readFile()));
         try {
@@ -75,7 +79,7 @@ public class ListBooks implements Initializable {
         if (textListBookAuthor.getText().isEmpty() ||
                 textListBookId.getText().isEmpty() ||
                 textListBookGenre.getText().isEmpty() ||
-                textListBookName.getText().isEmpty()) {
+                textListBookName.getText().isEmpty()){
 
             SceneLoader.alertSpam("Error. Field empty.");
         } else {
@@ -98,7 +102,7 @@ public class ListBooks implements Initializable {
     private static List<Book> readFile(){
         try{
             return Files.lines(Paths.get("books.txt")).map(line -> new Book(line.split(";")[0],line.split(";")[1],
-                    line.split(";")[2],line.split(";")[3])).collect(Collectors.toList());
+                    line.split(";")[2],line.split(";")[3], line.split(";")[4])).collect(Collectors.toList());
         }catch (Exception e){
             return null;
         }

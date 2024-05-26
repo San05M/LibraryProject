@@ -45,7 +45,7 @@
                       <TableColumn fx:id="columnListBookName" prefWidth="169.0" text="Name" />
                         <TableColumn fx:id="columnListBookAuthor" prefWidth="134.0" text="Author" />
                         <TableColumn fx:id="columnListBookGenre" prefWidth="87.0" text="Genre" />
-                        <TableColumn fx:id="columnListBookRemove" prefWidth="117.0" text="Remove" />
+                        <TableColumn fx:id="columnListBookAvailable" prefWidth="117.0" text="Available" />
                     </columns>
                   </TableView>
                </children>
