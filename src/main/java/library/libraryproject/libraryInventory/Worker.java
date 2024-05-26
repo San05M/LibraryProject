@@ -7,8 +7,8 @@ package library.libraryproject.libraryInventory;
  * @see Person
  */
 public class Worker extends Person {
-    public Worker(String name, String id, String password) {
-        super(name, id, password);
+    public Worker(String name, String password) {
+        super(name, password);
     }
 
     @Override

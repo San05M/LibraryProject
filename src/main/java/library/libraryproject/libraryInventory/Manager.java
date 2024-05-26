@@ -7,8 +7,8 @@ package library.libraryproject.libraryInventory;
  * @see Person
  */
 public class Manager extends Person{
-    public Manager(String name, String id, String password) {
-        super(name, id, password);
+    public Manager(String name, String password) {
+        super(name, password);
     }
     public void addWorker(){
     }

@@ -104,7 +104,7 @@ public class ListLoans implements Initializable {
                 textListLoansDataLoan.getText().isEmpty() ||
                 textListLoansDataCheck.getText().isEmpty()) {
 
-            SceneLoader.alertSpam();
+            SceneLoader.alertSpam("Error. Field empty.");
         } else {
             String userName = textListLoansName.getText();
             String bookName = textListLoansBook.getText();
@@ -115,11 +115,7 @@ public class ListLoans implements Initializable {
             Book book = findBookByName(bookName);
 
             if (user == null || book == null) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Error adding loan");
-                alert.setContentText("User or book not found");
-                alert.showAndWait();
+                SceneLoader.alertSpam("User or book not found");
             } else {
                 Loan loan = new Loan(user, book, loanBook, checkBook);
                 tableListLoans.getItems().add(loan);

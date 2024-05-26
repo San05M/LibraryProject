@@ -34,10 +34,9 @@ public class CreateWorker {
         if(textCreateId.getText().isEmpty() ||
                 textCreatePassword.getText().isEmpty() ||
                 textCreateUser.getText().isEmpty()) {
-            SceneLoader.alertSpam();
+            SceneLoader.alertSpam("You are not a Manager!");
         }else{
             worker.add(new Worker(textCreateUser.getText(),
-                    textCreateId.getText(),
                     textCreatePassword.getText()));
             saveFile(worker);
         }

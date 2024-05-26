@@ -18,11 +18,11 @@ public class SceneLoader {
         stage.show();
     }
 
-    public static void alertSpam(){
+    public static void alertSpam(String text){
         Alert dialog = new Alert(Alert.AlertType.ERROR);
         dialog.setTitle("Error");
-        dialog.setHeaderText("Error adding data");
-        dialog.setContentText("No field can be empty");
+        dialog.setHeaderText("Error");
+        dialog.setContentText(text);
         dialog.showAndWait();
     }
 }

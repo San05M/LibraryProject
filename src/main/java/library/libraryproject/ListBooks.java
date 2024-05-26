@@ -75,7 +75,7 @@ public class ListBooks implements Initializable {
                 textListBookGenre.getText().isEmpty() ||
                 textListBookName.getText().isEmpty()) {
 
-            SceneLoader.alertSpam();
+            SceneLoader.alertSpam("Error. Field empty.");
         } else {
             book.add(new Book(textListBookName.getText(),
                     textListBookAuthor.getText(),

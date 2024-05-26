@@ -79,7 +79,7 @@ public class ListUsers implements Initializable {
                 textListUsersEmail.getText().isEmpty() ||
                 textListPhoneNumber.getText().isEmpty()) {
 
-            SceneLoader.alertSpam();
+            SceneLoader.alertSpam("Error. Field empty.");
         } else {
             user.add(new User(textListUsersName.getText(),
                     textListUsersId.getText(),
@@ -97,7 +97,7 @@ public class ListUsers implements Initializable {
         }
     }
 
-    private static  List<User> readFile(){
+    private static List<User> readFile(){
         try{
             return Files.lines(Paths.get("user.txt")).map(line -> new User(line.split(";")[0],line.split(";")[1],
                     line.split(";")[2],line.split(";")[3])).collect(Collectors.toList());
