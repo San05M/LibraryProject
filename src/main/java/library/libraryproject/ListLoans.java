@@ -81,25 +81,21 @@ public class ListLoans implements Initializable {
     }
 
     /**
-     * Loads the main menu screen.
-     *
-     * @param actionEvent Action event activated by the button click
+     * Navigates back to the main menu.
      */
     public void goToMenu(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("menu.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
+
     /**
      * Adds a new loan.
      * If any required field is empty, alert is activated.
      * If the user or book is not found, alert is activated.
-     *
-     * @param actionEvent Action event activated by the button click
      */
     public void addLoan(ActionEvent actionEvent) {
         if (textListLoansName.getText().isEmpty() ||
                 textListLoansBook.getText().isEmpty() ||
-                textLoanContact.getText().isEmpty() ||
                 textListLoansDataLoan.getText().isEmpty() ||
                 textListLoansDataCheck.getText().isEmpty()) {
 
@@ -129,6 +125,9 @@ public class ListLoans implements Initializable {
         }
     }
 
+    /**
+     * Delete the load and add available to the book.
+     */
     public void deleteLoan(ActionEvent actionEvent) {
         if(textBookDelete.getText().isEmpty()){
             SceneLoader.alertSpam("Error: Field empty.");
@@ -158,8 +157,6 @@ public class ListLoans implements Initializable {
 
     /**
      * Finds a user by their name.
-     *
-     * @param name The name of the user to find
      * @return The User object if found or null
      */
     private User findUserByName(String name) {
@@ -171,8 +168,6 @@ public class ListLoans implements Initializable {
 
     /**
      * Finds a book by their name.
-     *
-     * @param name The name of the user to find
      * @return The Book object if found or null
      */
     private Book findBookByName(String name) {
@@ -183,16 +178,47 @@ public class ListLoans implements Initializable {
     }
 
     /**
-     * Finds a Load by their book's name.
-     *
-     * @param name The name of the user to find
-     * @return The Book object if found or null
+     * Saves a loan to a file.
      */
-    private Loan findLoanByName(String name) {
-        List<Loan> loans = readLoansFromFile();
-        return loans.stream()
-                .filter(loan -> loan.getBookName().trim().equals(name.trim()))
-                .findFirst().orElse(null);
+    private void saveLoanToFile(Loan loan) {
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("loans.txt", true)))) {
+            pw.println(loan.toString());
+        } catch (IOException e) {
+            throw new RuntimeException("Error adding loan to file", e);
+        }
+    }
+
+    /**
+     * Saves a loan to a file afther delete.
+     */
+    private void saveLoanToFileAftherDelete(List<Loan> loans){
+        try(PrintWriter pw = new PrintWriter("loans.txt")){
+            loans.forEach(l -> pw.println(l.toString()));
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Reads loan data from file and returns a list.
+     *
+     * @return the loan list
+     */
+    private List<Loan> readLoansFromFile() {
+        try {
+            return Files.lines(Paths.get("loans.txt"))
+                    .map(line -> {
+                        String[] parts = line.split(";");
+                        User user = findUserByName(parts[0]);
+                        Book book = findBookByName(parts[1]);
+                        LocalDate loanBook = LocalDate.parse(parts[2]);
+                        LocalDate returnDate = LocalDate.parse(parts[3]);
+                        return new Loan(user, book, loanBook, returnDate);
+                    })
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -206,7 +232,8 @@ public class ListLoans implements Initializable {
                     .map(line -> {
                         String[] parts = line.split(";");
                         return new User(parts[0], parts[1], parts[2], parts[3]);
-                    }).collect(Collectors.toList());
+                    })
+                    .collect(Collectors.toList());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -231,47 +258,8 @@ public class ListLoans implements Initializable {
     }
 
     /**
-     * Saves a loan to a file.
-     *
-     * @param loan Save
+     * Update books.txt add the available
      */
-    private void saveLoanToFile(Loan loan) {
-        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("loans.txt", true)))) {
-            pw.println(loan.toString());
-        } catch (IOException e) {
-            throw new RuntimeException("Error adding loan to file", e);
-        }
-    }
-
-    private void saveLoanToFileAftherDelete(List<Loan> loans){
-        try(PrintWriter pw = new PrintWriter("loans.txt")){
-            loans.forEach(l -> pw.println(l.toString()));
-        }catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    /**
-     * Reads loan data from file and returns a list.
-     *
-     * @return List objects
-     */
-    private List<Loan> readLoansFromFile() {
-        try {
-            return Files.lines(Paths.get("loans.txt"))
-                    .map(line -> {
-                        String[] parts = line.split(";");
-                        User user = findUserByName(parts[0]);
-                        Book book = findBookByName(parts[1]);
-                        LocalDate loanBook = LocalDate.parse(parts[2]);
-                        LocalDate returnDate = LocalDate.parse(parts[3]);
-                        return new Loan(user, book, loanBook, returnDate);
-                    }).collect(Collectors.toList());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private void updateBookFile(Book b, String text){
         try {
             List<String> lines = Files.readAllLines(Paths.get("books.txt"));
@@ -288,9 +276,11 @@ public class ListLoans implements Initializable {
         }
     }
 
+    /**
+     * Update table Loans
+     */
     private void updateTable(List<Loan> loans){
         ObservableList<Loan> updateloans = FXCollections.observableArrayList(loans);
         this.tableListLoans.setItems(updateloans);
     }
-
 }
