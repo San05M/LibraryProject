@@ -20,7 +20,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-
+/**
+ * Controller class for managing books.
+ *
+ * @author sandramoyaortega
+ * @version 1.0
+ * @since 1.0
+ */
 public class ListBooks implements Initializable {
 
     @FXML
@@ -55,11 +61,11 @@ public class ListBooks implements Initializable {
     private TableColumn columnListBookRemove;
     private ObservableList<Book> book;
 
-    public void goToMenu(ActionEvent actionEvent) throws IOException {
-        SceneLoader.loadScreen("menu.fxml",
-                (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
-    }
-
+    /**
+     * Initializes the ListBooks.
+     * Set the cells with the name of the getters.
+     * Reads book data from file and populates existing books.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.columnListBookName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -75,6 +81,18 @@ public class ListBooks implements Initializable {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Navigates back to the main menu.
+     */
+    public void goToMenu(ActionEvent actionEvent) throws IOException {
+        SceneLoader.loadScreen("menu.fxml",
+                (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+    }
+
+    /**
+     * Add book to the file and list.
+     */
     public void addBook(ActionEvent actionEvent) {
         if (textListBookAuthor.getText().isEmpty() ||
                 textListBookId.getText().isEmpty() ||
@@ -91,6 +109,9 @@ public class ListBooks implements Initializable {
         }
     }
 
+    /**
+     * Save the list book to the txt.
+     */
     private static void saveFile(List<Book> book){
         try(PrintWriter pw = new PrintWriter("books.txt")){
             book.forEach(b -> pw.println(b.toString()));
@@ -99,6 +120,9 @@ public class ListBooks implements Initializable {
         }
     }
 
+    /**
+     * Read the list book from the txt.
+     */
     private static List<Book> readFile(){
         try{
             return Files.lines(Paths.get("books.txt")).map(line -> new Book(line.split(";")[0],line.split(";")[1],
@@ -108,6 +132,9 @@ public class ListBooks implements Initializable {
         }
     }
 
+    /**
+     * Find a book with the name.
+     */
     private Book findBookByName(String name) {
         List<Book> books = readFile();
         return books.stream()
@@ -115,6 +142,9 @@ public class ListBooks implements Initializable {
                 .findFirst().orElse(null);
     }
 
+    /**
+     * Button for seach a book.
+     */
     public void searchBook(ActionEvent actionEvent) {
         String name = textToSearch.getText();
 
