@@ -19,7 +19,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-
+/**
+ * Controller for the list of users screen.
+ * @author sandramoyaortega
+ * @version 2
+ * @since 1
+ */
 public class ListUsers implements Initializable {
 
     @FXML
@@ -48,11 +53,17 @@ public class ListUsers implements Initializable {
     private TableColumn columnListUserRemove;
     private ObservableList<User> user;
 
+    /**
+     * Navigates back to the main menu.
+     */
     public void goToMenu(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("menu.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
 
+    /**
+     * Initializes the user interface.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -69,6 +80,9 @@ public class ListUsers implements Initializable {
         }
     }
 
+    /**
+     * Adds a new user to the list.
+     */
     public void addUser(ActionEvent actionEvent) throws IOException {
         if (textListUsersName.getText().isEmpty() ||
                 textListUsersId.getText().isEmpty() ||
@@ -85,6 +99,10 @@ public class ListUsers implements Initializable {
 
         }
     }
+
+    /**
+     * Save the file of the users.
+     */
     private static void saveFile(List<User> user){
         try(PrintWriter pw = new PrintWriter("user.txt")){
             user.forEach(u -> pw.println(u.toString()));
@@ -93,10 +111,17 @@ public class ListUsers implements Initializable {
         }
     }
 
+    /**
+     * Read the users file.
+     */
     private static List<User> readFile(){
         try{
-            return Files.lines(Paths.get("user.txt")).map(line -> new User(line.split(";")[0],line.split(";")[1],
-                    line.split(";")[2],line.split(";")[3])).collect(Collectors.toList());
+            return Files.lines(Paths.get("user.txt"))
+                    .map(line -> new User(line.split(";")[0],
+                            line.split(";")[1],
+                            line.split(";")[2],
+                            line.split(";")[3]))
+                    .collect(Collectors.toList());
         }catch (Exception e){
             return null;
         }
