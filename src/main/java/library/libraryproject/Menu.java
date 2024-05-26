@@ -15,6 +15,12 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Controller for the main menu.
+ * @author sandramoyaortega
+ * @version 2
+ * @since 1
+ */
 public class Menu {
     @FXML
     private Button bottomViewUsers;
@@ -27,6 +33,9 @@ public class Menu {
     @FXML
     private Button bottomExit;
 
+    /**
+     * Method to load the screen for go to the CreateWorker.
+     */
     public void goToCreateUser(ActionEvent actionEvent) throws IOException {
 
         if(findPerson()){
@@ -38,25 +47,41 @@ public class Menu {
         }
     }
 
+    /**
+     * Method to load the screen for go to the loans list.
+     */
     public void goToListLoans(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("ListLoans.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
 
+    /**
+     * Method to load the screen for go to the books list.
+     */
     public void goToListBooks(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("ListBooks.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
 
+    /**
+     * Method to load the screen for go to the users list.
+     */
     public void goToListUsers(ActionEvent actionEvent) throws IOException {
         SceneLoader.loadScreen("ListUsers.fxml",
                 (Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
 
+    /**
+     * Method to close the app.
+     */
     public void closeApp(ActionEvent actionEvent) throws IOException {
         Platform.exit();
     }
 
+    /**
+     * Method to read the file with the actual loggin and returns the person loggin.
+     * @return Person
+     */
     private static Person readFilePerson() {
         try {
 
@@ -71,16 +96,28 @@ public class Menu {
         }
     }
 
+    /**
+     * Method to find the person in the list of manager to know if the persons is a manager.
+     * @return boolean
+     */
     private Boolean findPerson(){
         List<Manager> managers = readFileManager();
         Person p = readFilePerson();
 
-        return managers.stream().anyMatch(m -> m.getName().equals(p.getName()) && m.getPassword().equals(p.getPassword()));
+        return managers.stream().anyMatch(m -> m.getName().equals(p.getName()) &&
+                m.getPassword().equals(p.getPassword()));
     }
+
+    /**
+     * Method to read the file with the manager and save it in the list.
+     * @return List<Manager>
+     */
     private static List<Manager> readFileManager(){
         try{
-            return Files.lines(Paths.get("managers.txt")).map(line -> new Manager(line.split(";")[0],
-                    line.split(";")[1])).collect(Collectors.toList());
+            return Files.lines(Paths.get("managers.txt")).
+                    map(line -> new Manager(line.split(";")[0],
+                    line.split(";")[1])).
+                    collect(Collectors.toList());
         }catch (Exception e){
             return null;
         }
