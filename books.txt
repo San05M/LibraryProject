@@ -1,8 +1,8 @@
 The Priory of the Orange Tree;Samantha Shannon;Fantasy Fiction;12345678;yes
-BlackWater;Michael Mcdowell;Mystery;12343212;no
+BlackWater;Michael Mcdowell;Mystery;12343212;yes
 To Kill a Mockingbird;Harper Lee;Drama;12342134;no
 The bridgerton Part 1;Julia Quinn;Romance;12347890;no
-1984;George Orwell;Dystopian Fiction;12349923;yes
+1984;George Orwell;Dystopian Fiction;12349923;No
 Pride and Prejudice;Jane Austen;Romance;12340321;yes
 The Catcher in the Rye;J.D. Salinger;Coming-of-Age Fiction;12341111;yes
 The Great Gatsby;F. Scott Fitzgerald;Tragedy;12348765;yes

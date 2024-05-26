@@ -110,6 +110,32 @@ public class ListBooks implements Initializable {
     }
 
     /**
+     * Button for seach a book.
+     */
+    public void searchBook(ActionEvent actionEvent) {
+        String name = textToSearch.getText();
+
+        if(name.isEmpty()){
+            this.book = FXCollections.observableArrayList(Objects.requireNonNull(readFile()));
+            try {
+                this.tableListBooks.setItems(book);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else{
+            Book book = findBookByName(name);
+
+            if (book != null) {
+                ObservableList<Book> searchResult = FXCollections.observableArrayList();
+                searchResult.add(book);
+                this.tableListBooks.setItems(searchResult);
+            } else {
+                this.tableListBooks.setItems(FXCollections.observableArrayList());
+            }
+        }
+    }
+
+    /**
      * Save the list book to the txt.
      */
     private static void saveFile(List<Book> book){
@@ -140,31 +166,5 @@ public class ListBooks implements Initializable {
         return books.stream()
                 .filter(book -> book.getName().trim().equals(name.trim()))
                 .findFirst().orElse(null);
-    }
-
-    /**
-     * Button for seach a book.
-     */
-    public void searchBook(ActionEvent actionEvent) {
-        String name = textToSearch.getText();
-
-        if(name.isEmpty()){
-            this.book = FXCollections.observableArrayList(Objects.requireNonNull(readFile()));
-            try {
-                this.tableListBooks.setItems(book);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else{
-            Book book = findBookByName(name);
-
-            if (book != null) {
-                ObservableList<Book> searchResult = FXCollections.observableArrayList();
-                searchResult.add(book);
-                this.tableListBooks.setItems(searchResult);
-            } else {
-                this.tableListBooks.setItems(FXCollections.observableArrayList());
-            }
-        }
     }
 }
