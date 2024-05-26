@@ -7,8 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import library.libraryproject.libraryInventory.Person;
-import library.libraryproject.libraryInventory.User;
+import library.libraryproject.libraryInventory.Worker;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -46,15 +45,15 @@ public class Login {
     }
 
     private Boolean findPerson(String name, String password){
-        List<Person> persons = readFilePersons();
-        return persons.stream().anyMatch(p -> p.getName().trim().equals(name.trim()) && p.getPassword().equals(password));
+        List<Worker> workers = readFilePersons();
+        return workers.stream().anyMatch(p -> p.getName().trim().equals(name.trim()) && p.getPassword().equals(password));
     }
-    private List<Person> readFilePersons() {
+    private List<Worker> readFilePersons() {
         try {
-            return Files.lines(Paths.get("persons.txt"))
+            return Files.lines(Paths.get("workers.txt"))
                     .map(line -> {
                         String[] parts = line.split(";");
-                        return new Person(parts[0], parts[1], parts[2]);
+                        return new Worker(parts[0], parts[1], parts[2]);
                     }).collect(Collectors.toList());
         } catch (Exception e) {
             throw new RuntimeException(e);
