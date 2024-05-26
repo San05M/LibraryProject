@@ -10,4 +10,9 @@ public class Worker extends Person {
     public Worker(String name, String id, String password) {
         super(name, id, password);
     }
+
+    @Override
+    public String toString(){
+        return super.toString();
+    }
 }
